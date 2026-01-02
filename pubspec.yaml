@@ -1,3 +1,28 @@
+name: car_workshop_web
+description: Web & Android version of Mechanic Workshop
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.10.0 <4.0.0'
+  flutter: ">=3.10.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  shared_preferences: ^2.1.1
+  flutter_form_builder: ^8.3.0
+  cupertino_icons: ^1.0.5
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.1
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+<<<<<<< HEAD
 name: Build Flutter Android APK
 
 on:
@@ -33,3 +58,34 @@ jobs:
         with:
           name: android-debug-apk
           path: build/app/outputs/flutter-apk/app-debug.apk
+=======
+name: car_workshop_web
+description: Web & Android version of Mechanic Workshop
+publish_to: 'none' # لأن المشروع شخصي، مش للنشر على pub.dev
+
+environment:
+  sdk: '>=3.10.0 <4.0.0'
+  flutter: ">=3.10.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # حفظ البيانات مؤقتًا على الجهاز
+  shared_preferences: ^2.1.1
+
+  # إذا كنت عايز تستخدم Dropdown و Forms
+  flutter_form_builder: ^8.3.0
+  cupertino_icons: ^1.0.5
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.1
+
+flutter:
+  uses-material-design: true
+
+
+
+>>>>>>> 9c0439b (Update pubspec.yaml for Flutter 3.38+ and Android/Web)
