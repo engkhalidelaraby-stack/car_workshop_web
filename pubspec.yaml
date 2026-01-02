@@ -1,22 +1,35 @@
-name: car_workshop_web
-description: Web version of Mechanic Workshop
-publish_to: "none"
+name: Build Flutter Android APK
 
-version: 1.0.0+1
+on:
+  push:
+    branches: [ "main" ]
 
-environment:
-  sdk: ">=3.0.0 <4.0.0"
+jobs:
+  build_apk:
+    runs-on: ubuntu-latest
 
-dependencies:
-  flutter:
-    sdk: flutter
-  shared_preferences: ^2.1.1
-  cupertino_icons: ^1.0.5
+    steps:
+      - uses: actions/checkout@v4
 
-dev_dependencies:
-  flutter_test:
-    sdk: flutter
-  flutter_lints: ^2.0.0
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
 
-flutter:
-  uses-material-design: true
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.38.5'
+          channel: 'stable'
+
+      - name: Flutter pub get
+        run: flutter pub get
+
+      - name: Build Debug APK
+        run: flutter build apk --debug
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-debug-apk
+          path: build/app/outputs/flutter-apk/app-debug.apk
