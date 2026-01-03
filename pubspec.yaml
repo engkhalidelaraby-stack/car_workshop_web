@@ -1,6 +1,6 @@
 name: car_workshop_web
 description: Web & Android version of Mechanic Workshop
-publish_to: 'none'
+publish_to: 'none' # المشروع شخصي، مش للنشر على pub.dev
 
 environment:
   sdk: '>=3.10.0 <4.0.0'
@@ -9,16 +9,26 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+
+  # حفظ البيانات مؤقتًا على الجهاز (Web & Android)
   shared_preferences: ^2.1.1
-  flutter_form_builder: ^8.3.0
+
+  # Forms و Dropdowns بشكل سهل
+  flutter_form_builder: ^10.2.0
+
+  # أيقونات iOS
   cupertino_icons: ^1.0.5
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+  # Lint rules للمشروع
   flutter_lints: ^2.0.1
 
 flutter:
   uses-material-design: true
+
+
 
 
